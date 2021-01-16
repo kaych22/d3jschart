@@ -1,6 +1,5 @@
-// Data-Driven Documents
+// Data-Driven Documents -> d3
 // for d3 helper methods
-// console.log(d3); 
 
 const SAMPLE_DATA = [
     { id: 'd1', value: 10, region: 'USA' },
@@ -17,7 +16,6 @@ const yScale = d3.scaleLinear().domain([0, 15]).range([200, 0]);
 
 const container = d3.select('svg')
     .classed('container', true)
-    // .style('border', '1px solid red');
 
 const bars = container
     .selectAll('.bar')
@@ -30,7 +28,3 @@ const bars = container
     .attr('x', data => xScale(data.region))
     .attr('y', data => yScale(data.value));
     // use attr instead of .style - static content
-
-    setTimeout(() => {
-        bars.data(SAMPLE_DATA.slice(0,2)).exit().remove();
-    }, 2000);
